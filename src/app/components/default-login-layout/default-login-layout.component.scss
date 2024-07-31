@@ -6,6 +6,8 @@ main {
     align-items: center;
     justify-content: center;
 
+    height: 100%;
+
     section {
         height: 100%;
         display: flex;
@@ -47,6 +49,28 @@ main {
             width: 100%;
             gap: 30px;
 
+            .divider {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                width: 100%;
+
+                font-size: 14px;
+                color: $gray-bg;
+                font-weight: 400;
+                text-transform: uppercase;
+
+                
+                div {
+                    
+                    flex-grow: 1;
+                    height: 2px;
+                    background-color: $gray-bg;
+                }
+            }
+
+
 
             button {
                 width: 100%;
@@ -56,6 +80,8 @@ main {
                 font-weight: 500;
                 border: none;
                 background-color: transparent;
+
+                cursor: pointer;
     
                 &.btn-primary {
                     background-color: $primary-color;
