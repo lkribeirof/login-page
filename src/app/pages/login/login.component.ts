@@ -3,7 +3,6 @@ import { DefaultLoginLayoutComponent } from '../../components/default-login-layo
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
 import { Router } from '@angular/router';
-import { LoginResponse } from '../../types/login-response.type';
 import { LoginService } from '../../services/login.service';
 import { Toast } from 'ngx-toastr';
 
@@ -26,6 +25,7 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
   toastService: any;
+ 
 
   constructor(
     private router: Router,
@@ -40,7 +40,7 @@ export class LoginComponent {
 
   submit() {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => this.toastService.sucess("Login feito com sucesso!!!"),
+      next: () => this.toastService.success("Login feito com sucesso!!!"),
       error: () => this.toastService.error("Erro inesperado, tente novamente")
     })
   }
