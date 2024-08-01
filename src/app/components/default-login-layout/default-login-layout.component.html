@@ -9,7 +9,11 @@
 
         <div class="btn-wrapper">
 
-            <button class="btn-primary" (click)="submit()">{{primaryBtnText}}</button>
+            <button 
+            class="btn-primary" 
+                (click)="submit()"
+                [disabled]="disablePrimaryBtn"   
+                >{{primaryBtnText}}</button>
 
         <div class="divider">
             <div></div>

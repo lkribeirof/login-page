@@ -5,6 +5,7 @@ import { PrimaryInputComponent } from '../../components/primary-input/primary-in
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { Toast } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,12 @@ import { Toast } from 'ngx-toastr';
   imports: [
     DefaultLoginLayoutComponent, 
     ReactiveFormsModule,
-    PrimaryInputComponent
+    PrimaryInputComponent,
   ],
   providers: [
     LoginService,
-    Toast
+    Toast,
+    ToastrService
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -24,11 +26,10 @@ import { Toast } from 'ngx-toastr';
 export class LoginComponent {
 
   loginForm!: FormGroup;
-  toastService: any;
- 
 
   constructor(
     private router: Router,
+    private toastService: ToastrService,
     private loginService: LoginService
   ) {
     this.loginForm = new FormGroup({
@@ -40,8 +41,12 @@ export class LoginComponent {
 
   submit() {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => this.toastService.success("Login feito com sucesso!!!"),
-      error: () => this.toastService.error("Erro inesperado, tente novamente")
+      // next: () => this.toastService.success.show()("Login feito com sucesso!!!"),
+      // error: () => this.toastService.error.show()("Erro inesperado, tente novamente")
+   
+      next: () => this.toastService.success("Login efetuado com sucesso!"),
+      error: () => this.toastService.error("Erro inesperado ! Tente novamente mais tarde")
+
     })
   }
 

@@ -1,6 +1,12 @@
 
 @import 'ngx-toastr/toastr';
 
+#toast-container > div {
+    opacity:1;
+}
+.toast {
+    opacity: 1;
+}
 
 * {
     margin: 0;
